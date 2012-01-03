@@ -1,0 +1,80 @@
+9
+
+dir
+22
+svn://dymek/chluper/trunk/project/Chluper2/src/chluper2
+svn://dymek/chluper
+
+
+
+2011-11-02T23:25:16.779664Z
+22
+damian
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3990483d-2ba1-4a0e-b953-fb444b8f60b6
+
+environment
+dir
+
+Main.java
+file
+25
+
+
+
+2011-11-03T13:02:52.000000Z
+df2c8e86584f11e346004a5501c75cc6
+2011-11-03T13:11:29.581946Z
+25
+damian
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+848
+
+gui
+dir
+
+simulation
+dir
+
+algorithm
+dir
+
+student
+dir
+
+example
+dir
+
