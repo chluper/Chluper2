@@ -23,7 +23,9 @@ public class EnvironmentConfigurator {
 	// maksymalna ilosc ksiazek na biurku
 	private int deskBooksLimit = 5;
 	// ilosc miejsc w kieszeni robota
+
 	private int robotCacheSize = 3;
+
 	// ilosc tytulow ksiazek
 	private int titleNumber = 1000;
 	// maksymalny czas obslugi studenta

@@ -20,10 +20,17 @@ is divided into following sections:
 
         -->
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="Chluper2-impl">
+<<<<<<< HEAD
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
                 <antversion atleast="1.8.0"/>
+=======
+    <fail message="Please build using Ant 1.7.1 or higher.">
+        <condition>
+            <not>
+                <antversion atleast="1.7.1"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
             </not>
         </condition>
     </fail>
@@ -55,6 +62,7 @@ is divided into following sections:
     </target>
     <target depends="-pre-init,-init-private,-init-user,-init-project,-init-macrodef-property" name="-do-init">
         <available file="${manifest.file}" property="manifest.available"/>
+<<<<<<< HEAD
         <condition property="splashscreen.available">
             <and>
                 <not>
@@ -63,6 +71,8 @@ is divided into following sections:
                 <available file="${application.splash}"/>
             </and>
         </condition>
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <condition property="main.class.available">
             <and>
                 <isset property="main.class"/>
@@ -77,6 +87,7 @@ is divided into following sections:
                 <isset property="main.class.available"/>
             </and>
         </condition>
+<<<<<<< HEAD
         <condition property="do.archive">
             <not>
                 <istrue value="${jar.archive.disabled}"/>
@@ -85,6 +96,10 @@ is divided into following sections:
         <condition property="do.mkdist">
             <and>
                 <isset property="do.archive"/>
+=======
+        <condition property="do.mkdist">
+            <and>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                 <isset property="libs.CopyLibs.classpath"/>
                 <not>
                     <istrue value="${mkdist.disabled}"/>
@@ -97,6 +112,7 @@ is divided into following sections:
                 <isset property="do.mkdist"/>
             </and>
         </condition>
+<<<<<<< HEAD
         <condition property="do.archive+manifest.available">
             <and>
                 <isset property="manifest.available"/>
@@ -119,6 +135,12 @@ is divided into following sections:
             <and>
                 <istrue value="${manifest.available+main.class}"/>
                 <istrue value="${do.archive}"/>
+=======
+        <condition property="manifest.available+mkdist.available">
+            <and>
+                <istrue value="${manifest.available}"/>
+                <isset property="do.mkdist"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
             </and>
         </condition>
         <condition property="manifest.available-mkdist.available">
@@ -187,6 +209,7 @@ is divided into following sections:
         <condition else="" property="endorsed.classpath.cmd.line.arg" value="-Xbootclasspath/p:'${toString:endorsed.classpath.path}'">
             <length length="0" string="${endorsed.classpath}" when="greater"/>
         </condition>
+<<<<<<< HEAD
         <condition else="false" property="jdkBug6558476">
             <and>
                 <matches pattern="1\.[56]" string="${java.specification.version}"/>
@@ -200,6 +223,9 @@ is divided into following sections:
         <property name="jar.index.metainf" value="${jar.index}"/>
         <property name="copylibs.rebase" value="true"/>
         <available file="${meta.inf.dir}/persistence.xml" property="has.persistence.xml"/>
+=======
+        <property name="javac.fork" value="false"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     </target>
     <target name="-post-init">
         <!-- Empty placeholder for easier customization. -->
@@ -226,6 +252,7 @@ is divided into following sections:
             </sequential>
         </macrodef>
     </target>
+<<<<<<< HEAD
     <target depends="-init-ap-cmdline-properties" if="ap.supported.internal" name="-init-macrodef-javac-with-processors">
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${src.dir}" name="srcdir"/>
@@ -267,12 +294,18 @@ is divided into following sections:
         </macrodef>
     </target>
     <target depends="-init-ap-cmdline-properties" name="-init-macrodef-javac-without-processors" unless="ap.supported.internal">
+=======
+    <target name="-init-macrodef-javac">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <macrodef name="javac" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${src.dir}" name="srcdir"/>
             <attribute default="${build.classes.dir}" name="destdir"/>
             <attribute default="${javac.classpath}" name="classpath"/>
+<<<<<<< HEAD
             <attribute default="${javac.processorpath}" name="processorpath"/>
             <attribute default="${build.generated.sources.dir}/ap-source-output" name="apgeneratedsrcdir"/>
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
             <attribute default="${includes}" name="includes"/>
             <attribute default="${excludes}" name="excludes"/>
             <attribute default="${javac.debug}" name="debug"/>
@@ -297,8 +330,11 @@ is divided into following sections:
                 </javac>
             </sequential>
         </macrodef>
+<<<<<<< HEAD
     </target>
     <target depends="-init-macrodef-javac-with-processors,-init-macrodef-javac-without-processors" name="-init-macrodef-javac">
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <macrodef name="depend" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${src.dir}" name="srcdir"/>
             <attribute default="${build.classes.dir}" name="destdir"/>
@@ -315,12 +351,17 @@ is divided into following sections:
             <attribute default="${build.classes.dir}" name="destdir"/>
             <sequential>
                 <fail unless="javac.includes">Must set javac.includes</fail>
+<<<<<<< HEAD
                 <pathconvert pathsep="${line.separator}" property="javac.includes.binary">
+=======
+                <pathconvert pathsep="," property="javac.includes.binary">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                     <path>
                         <filelist dir="@{destdir}" files="${javac.includes}"/>
                     </path>
                     <globmapper from="*.java" to="*.class"/>
                 </pathconvert>
+<<<<<<< HEAD
                 <tempfile deleteonexit="true" property="javac.includesfile.binary"/>
                 <echo file="${javac.includesfile.binary}" message="${javac.includes.binary}"/>
                 <delete>
@@ -328,6 +369,10 @@ is divided into following sections:
                 </delete>
                 <delete>
                     <fileset file="${javac.includesfile.binary}"/>
+=======
+                <delete>
+                    <files includes="${javac.includes.binary}"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                 </delete>
             </sequential>
         </macrodef>
@@ -338,8 +383,12 @@ is divided into following sections:
             <attribute default="${excludes}" name="excludes"/>
             <attribute default="**" name="testincludes"/>
             <sequential>
+<<<<<<< HEAD
                 <property name="junit.forkmode" value="perTest"/>
                 <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" forkmode="${junit.forkmode}" showoutput="true" tempdir="${build.dir}">
+=======
+                <junit dir="${work.dir}" errorproperty="tests.failed" failureproperty="tests.failed" fork="true" showoutput="true" tempdir="${build.dir}">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                     <batchtest todir="${build.test.results.dir}">
                         <fileset dir="${test.src.dir}" excludes="@{excludes},${excludes}" includes="@{includes}">
                             <filename name="@{testincludes}"/>
@@ -355,12 +404,16 @@ is divided into following sections:
                     <formatter type="brief" usefile="false"/>
                     <formatter type="xml"/>
                     <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
+<<<<<<< HEAD
                     <jvmarg value="-ea"/>
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                     <jvmarg line="${run.jvmargs}"/>
                 </junit>
             </sequential>
         </macrodef>
     </target>
+<<<<<<< HEAD
     <target depends="-profile-pre-init, init, -profile-post-init, -profile-init-macrodef-profile, -profile-init-check" name="profile-init"/>
     <target name="-profile-pre-init">
         <!-- Empty placeholder for easier customization. -->
@@ -406,6 +459,8 @@ is divided into following sections:
         <fail unless="profiler.info.jvm">Must set JVM to use for profiling in profiler.info.jvm</fail>
         <fail unless="profiler.info.jvmargs.agent">Must set profiler agent JVM arguments in profiler.info.jvmargs.agent</fail>
     </target>
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     <target depends="-init-debug-args" name="-init-macrodef-nbjpda">
         <macrodef name="nbjpdastart" uri="http://www.netbeans.org/ns/j2se-project/1">
             <attribute default="${main.class}" name="name"/>
@@ -498,6 +553,7 @@ is divided into following sections:
             </sequential>
         </macrodef>
     </target>
+<<<<<<< HEAD
     <target name="-init-macrodef-copylibs">
         <macrodef name="copylibs" uri="http://www.netbeans.org/ns/j2se-project/3">
             <attribute default="${manifest.file}" name="manifest"/>
@@ -529,10 +585,16 @@ is divided into following sections:
     <target name="-init-presetdef-jar">
         <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
             <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}">
+=======
+    <target name="-init-presetdef-jar">
+        <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
+            <jar compress="${jar.compress}" jarfile="${dist.jar}">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                 <j2seproject1:fileset dir="${build.classes.dir}"/>
             </jar>
         </presetdef>
     </target>
+<<<<<<< HEAD
     <target name="-init-ap-cmdline-properties">
         <property name="annotation.processing.enabled" value="true"/>
         <property name="annotation.processing.processors.list" value=""/>
@@ -558,6 +620,9 @@ is divided into following sections:
         <property name="ap.cmd.line.internal" value=""/>
     </target>
     <target depends="-pre-init,-init-private,-init-user,-init-project,-do-init,-post-init,-init-check,-init-macrodef-property,-init-macrodef-javac,-init-macrodef-junit,-init-macrodef-nbjpda,-init-macrodef-debug,-init-macrodef-java,-init-presetdef-jar,-init-ap-cmdline" name="init"/>
+=======
+    <target depends="-pre-init,-init-private,-init-user,-init-project,-do-init,-post-init,-init-check,-init-macrodef-property,-init-macrodef-javac,-init-macrodef-junit,-init-macrodef-nbjpda,-init-macrodef-debug,-init-macrodef-java,-init-presetdef-jar" name="init"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     <!--
                 ===================
                 COMPILATION SECTION
@@ -601,18 +666,25 @@ is divided into following sections:
         </pathconvert>
         <j2seproject3:depend srcdir="${src.dir}:${build.generated.subdirs}"/>
     </target>
+<<<<<<< HEAD
     <target depends="init,deps-jar,-pre-pre-compile,-pre-compile, -copy-persistence-xml,-compile-depend" if="have.sources" name="-do-compile">
+=======
+    <target depends="init,deps-jar,-pre-pre-compile,-pre-compile,-compile-depend" if="have.sources" name="-do-compile">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <j2seproject3:javac gensrcdir="${build.generated.sources.dir}"/>
         <copy todir="${build.classes.dir}">
             <fileset dir="${src.dir}" excludes="${build.classes.excludes},${excludes}" includes="${includes}"/>
         </copy>
     </target>
+<<<<<<< HEAD
     <target if="has.persistence.xml" name="-copy-persistence-xml">
         <mkdir dir="${build.classes.dir}/META-INF"/>
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${meta.inf.dir}" includes="persistence.xml"/>
         </copy>
     </target>
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     <target name="-post-compile">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
@@ -645,6 +717,7 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
+<<<<<<< HEAD
     <target depends="init,compile,-pre-pre-jar,-pre-jar" if="do.archive" name="-do-jar-without-manifest" unless="manifest.available-mkdist.available">
         <j2seproject1:jar/>
     </target>
@@ -652,18 +725,32 @@ is divided into following sections:
         <j2seproject1:jar manifest="${manifest.file}"/>
     </target>
     <target depends="init,compile,-pre-pre-jar,-pre-jar" if="do.archive+manifest.available+main.class" name="-do-jar-with-mainclass" unless="manifest.available+main.class+mkdist.available">
+=======
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" name="-do-jar-without-manifest" unless="manifest.available-mkdist.available">
+        <j2seproject1:jar/>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" if="manifest.available" name="-do-jar-with-manifest" unless="manifest.available+main.class-mkdist.available">
+        <j2seproject1:jar manifest="${manifest.file}"/>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" if="manifest.available+main.class" name="-do-jar-with-mainclass" unless="manifest.available+main.class+mkdist.available">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <j2seproject1:jar manifest="${manifest.file}">
             <j2seproject1:manifest>
                 <j2seproject1:attribute name="Main-Class" value="${main.class}"/>
             </j2seproject1:manifest>
         </j2seproject1:jar>
+<<<<<<< HEAD
         <echo level="info">To run this application from the command line without Ant, try:</echo>
+=======
+        <echo>To run this application from the command line without Ant, try:</echo>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
         <property location="${dist.jar}" name="dist.jar.resolved"/>
         <pathconvert property="run.classpath.with.dist.jar">
             <path path="${run.classpath}"/>
             <map from="${build.classes.dir.resolved}" to="${dist.jar.resolved}"/>
         </pathconvert>
+<<<<<<< HEAD
         <echo level="info">java -cp "${run.classpath.with.dist.jar}" ${main.class}</echo>
     </target>
     <target depends="init" if="do.archive" name="-do-jar-with-libraries-create-manifest" unless="manifest.available">
@@ -699,11 +786,86 @@ is divided into following sections:
         </delete>
     </target>
     <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-with-libraries-create-manifest,-do-jar-with-libraries-copy-manifest,-do-jar-with-libraries-set-main,-do-jar-with-libraries-set-splashscreen,-do-jar-with-libraries-pack,-do-jar-with-libraries-delete-manifest" name="-do-jar-with-libraries"/>
+=======
+        <echo>java -cp "${run.classpath.with.dist.jar}" ${main.class}</echo>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" if="manifest.available+main.class+mkdist.available" name="-do-jar-with-libraries">
+        <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
+        <pathconvert property="run.classpath.without.build.classes.dir">
+            <path path="${run.classpath}"/>
+            <map from="${build.classes.dir.resolved}" to=""/>
+        </pathconvert>
+        <pathconvert pathsep=" " property="jar.classpath">
+            <path path="${run.classpath.without.build.classes.dir}"/>
+            <chainedmapper>
+                <flattenmapper/>
+                <globmapper from="*" to="lib/*"/>
+            </chainedmapper>
+        </pathconvert>
+        <taskdef classname="org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs" classpath="${libs.CopyLibs.classpath}" name="copylibs"/>
+        <copylibs compress="${jar.compress}" jarfile="${dist.jar}" manifest="${manifest.file}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
+            <fileset dir="${build.classes.dir}"/>
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+                <attribute name="Class-Path" value="${jar.classpath}"/>
+            </manifest>
+        </copylibs>
+        <echo>To run this application from the command line without Ant, try:</echo>
+        <property location="${dist.jar}" name="dist.jar.resolved"/>
+        <echo>java -jar "${dist.jar.resolved}"</echo>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" if="manifest.available+mkdist.available" name="-do-jar-with-libraries-without-mainclass" unless="main.class.available">
+        <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
+        <pathconvert property="run.classpath.without.build.classes.dir">
+            <path path="${run.classpath}"/>
+            <map from="${build.classes.dir.resolved}" to=""/>
+        </pathconvert>
+        <pathconvert pathsep=" " property="jar.classpath">
+            <path path="${run.classpath.without.build.classes.dir}"/>
+            <chainedmapper>
+                <flattenmapper/>
+                <globmapper from="*" to="lib/*"/>
+            </chainedmapper>
+        </pathconvert>
+        <taskdef classname="org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs" classpath="${libs.CopyLibs.classpath}" name="copylibs"/>
+        <copylibs compress="${jar.compress}" jarfile="${dist.jar}" manifest="${manifest.file}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
+            <fileset dir="${build.classes.dir}"/>
+            <manifest>
+                <attribute name="Class-Path" value="${jar.classpath}"/>
+            </manifest>
+        </copylibs>
+    </target>
+    <target depends="init,compile,-pre-pre-jar,-pre-jar" if="do.mkdist" name="-do-jar-with-libraries-without-manifest" unless="manifest.available">
+        <property location="${build.classes.dir}" name="build.classes.dir.resolved"/>
+        <pathconvert property="run.classpath.without.build.classes.dir">
+            <path path="${run.classpath}"/>
+            <map from="${build.classes.dir.resolved}" to=""/>
+        </pathconvert>
+        <pathconvert pathsep=" " property="jar.classpath">
+            <path path="${run.classpath.without.build.classes.dir}"/>
+            <chainedmapper>
+                <flattenmapper/>
+                <globmapper from="*" to="lib/*"/>
+            </chainedmapper>
+        </pathconvert>
+        <taskdef classname="org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs" classpath="${libs.CopyLibs.classpath}" name="copylibs"/>
+        <copylibs compress="${jar.compress}" jarfile="${dist.jar}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
+            <fileset dir="${build.classes.dir}"/>
+            <manifest>
+                <attribute name="Class-Path" value="${jar.classpath}"/>
+            </manifest>
+        </copylibs>
+    </target>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     <target name="-post-jar">
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
+<<<<<<< HEAD
     <target depends="init,compile,-pre-jar,-do-jar-with-manifest,-do-jar-without-manifest,-do-jar-with-mainclass,-do-jar-with-libraries,-post-jar" description="Build JAR." name="jar"/>
+=======
+    <target depends="init,compile,-pre-jar,-do-jar-with-manifest,-do-jar-without-manifest,-do-jar-with-mainclass,-do-jar-with-libraries,-do-jar-with-libraries-without-mainclass,-do-jar-with-libraries-without-manifest,-post-jar" description="Build JAR." name="jar"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     <!--
                 =================
                 EXECUTION SECTION
@@ -769,6 +931,7 @@ is divided into following sections:
     </target>
     <target depends="init,-pre-debug-fix,-do-debug-fix" if="netbeans.home" name="debug-fix"/>
     <!--
+<<<<<<< HEAD
                 =================
                 PROFILING SECTION
                 =================
@@ -835,21 +998,32 @@ is divided into following sections:
         </junit>
     </target>
     <!--
+=======
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                 ===============
                 JAVADOC SECTION
                 ===============
             -->
+<<<<<<< HEAD
     <target depends="init" if="have.sources" name="-javadoc-build">
+=======
+    <target depends="init" name="-javadoc-build">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <mkdir dir="${dist.javadoc.dir}"/>
         <javadoc additionalparam="${javadoc.additionalparam}" author="${javadoc.author}" charset="UTF-8" destdir="${dist.javadoc.dir}" docencoding="UTF-8" encoding="${javadoc.encoding.used}" failonerror="true" noindex="${javadoc.noindex}" nonavbar="${javadoc.nonavbar}" notree="${javadoc.notree}" private="${javadoc.private}" source="${javac.source}" splitindex="${javadoc.splitindex}" use="${javadoc.use}" useexternalfile="true" version="${javadoc.version}" windowtitle="${javadoc.windowtitle}">
             <classpath>
                 <path path="${javac.classpath}"/>
             </classpath>
+<<<<<<< HEAD
             <fileset dir="${src.dir}" excludes="*.java,${excludes}" includes="${includes}">
+=======
+            <fileset dir="${src.dir}" excludes="${excludes}" includes="${includes}">
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
                 <filename name="**/*.java"/>
             </fileset>
             <fileset dir="${build.generated.sources.dir}" erroronmissingdir="false">
                 <include name="**/*.java"/>
+<<<<<<< HEAD
                 <exclude name="*.java"/>
             </fileset>
         </javadoc>
@@ -861,6 +1035,10 @@ is divided into following sections:
                 <include name="**/doc-files/**"/>
             </fileset>
         </copy>
+=======
+            </fileset>
+        </javadoc>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
     </target>
     <target depends="init,-javadoc-build" if="netbeans.home" name="-javadoc-browse" unless="no.javadoc.preview">
         <nbbrowse file="${dist.javadoc.dir}/index.html"/>
@@ -881,8 +1059,13 @@ is divided into following sections:
     <target if="do.depend.true" name="-compile-test-depend">
         <j2seproject3:depend classpath="${javac.test.classpath}" destdir="${build.test.classes.dir}" srcdir="${test.src.dir}"/>
     </target>
+<<<<<<< HEAD
     <target depends="init,deps-jar,compile,-pre-pre-compile-test,-pre-compile-test,-compile-test-depend" if="have.tests" name="-do-compile-test">
         <j2seproject3:javac apgeneratedsrcdir="${build.test.classes.dir}" classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" processorpath="${javac.test.processorpath}" srcdir="${test.src.dir}"/>
+=======
+    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test,-compile-test-depend" if="have.tests" name="-do-compile-test">
+        <j2seproject3:javac classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" srcdir="${test.src.dir}"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <copy todir="${build.test.classes.dir}">
             <fileset dir="${test.src.dir}" excludes="${build.classes.excludes},${excludes}" includes="${includes}"/>
         </copy>
@@ -896,10 +1079,17 @@ is divided into following sections:
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
+<<<<<<< HEAD
     <target depends="init,deps-jar,compile,-pre-pre-compile-test,-pre-compile-test-single" if="have.tests" name="-do-compile-test-single">
         <fail unless="javac.includes">Must select some files in the IDE or set javac.includes</fail>
         <j2seproject3:force-recompile destdir="${build.test.classes.dir}"/>
         <j2seproject3:javac apgeneratedsrcdir="${build.test.classes.dir}" classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" excludes="" includes="${javac.includes}" processorpath="${javac.test.processorpath}" sourcepath="${test.src.dir}" srcdir="${test.src.dir}"/>
+=======
+    <target depends="init,compile,-pre-pre-compile-test,-pre-compile-test-single" if="have.tests" name="-do-compile-test-single">
+        <fail unless="javac.includes">Must select some files in the IDE or set javac.includes</fail>
+        <j2seproject3:force-recompile destdir="${build.test.classes.dir}"/>
+        <j2seproject3:javac classpath="${javac.test.classpath}" debug="true" destdir="${build.test.classes.dir}" excludes="" includes="${javac.includes}" sourcepath="${test.src.dir}" srcdir="${test.src.dir}"/>
+>>>>>>> 7b5997d6edaab3c3314bfde9b92771f188fbb70f
         <copy todir="${build.test.classes.dir}">
             <fileset dir="${test.src.dir}" excludes="${build.classes.excludes},${excludes}" includes="${includes}"/>
         </copy>
