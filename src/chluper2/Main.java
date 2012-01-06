@@ -39,7 +39,6 @@ public class Main {
 		Simulator simulator = new Simulator(configurator, algorithmManager);
 
 		new SimulationFrame(simulator);
-
     }
 
 }
