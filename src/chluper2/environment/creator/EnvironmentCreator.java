@@ -232,7 +232,8 @@ public class EnvironmentCreator {
 		int currentDesk = 0;
 		// ustawianie robotow we wlasciwych odstepach
 		for (int i = 1; i < width - 1; i++) {
-			if (i % distance == distance / 2) {
+
+			if ((i % distance == distance / 2) && currentDesk != configurator.getDeskNumber() ) {
 				// dodawanie biurka
 				desks.add(new ConcreteDesk(new Position(i, startY), Direction.SOUTH, "Desk-" + currentDesk, configurator.getDeskBooksLimit()));
 				currentDesk++;
