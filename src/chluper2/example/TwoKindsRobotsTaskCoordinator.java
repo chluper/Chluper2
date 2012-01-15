@@ -78,7 +78,7 @@ public class TwoKindsRobotsTaskCoordinator extends CoordinatorAdapter implements
         for (Robot robot : currentTasks.keySet()) {
             Task task = currentTasks.get(robot);
             if (desk.equals(task.getSourceDesk()) && book.getTitle().equals(task.getTitle())) {
-                System.out.println("Student wzial ksiazke przeznaczona dla robota");
+      //          System.out.println("Student wzial ksiazke przeznaczona dla robota");
 
             }
         }
@@ -89,7 +89,7 @@ public class TwoKindsRobotsTaskCoordinator extends CoordinatorAdapter implements
         robotTasks.remove(currentTasks.get(robot));
         recentTasks.remove(currentTasks.get(robot));
         currentTasks.remove(robot);
-        System.out.println("Robot " + robot.getName() + " odłożył książkę na biurko");
+    //    System.out.println("Robot " + robot.getName() + " odłożył książkę na biurko");
         this.requireCurrentTask(robot);
     }
 
@@ -98,7 +98,7 @@ public class TwoKindsRobotsTaskCoordinator extends CoordinatorAdapter implements
         robotTasks.remove(currentTasks.get(robot));
         recentTasks.remove(currentTasks.get(robot));
         currentTasks.remove(robot);
-        System.out.println("Robot " + robot.getName() + "  odłożył książkę na półkę");
+    //    System.out.println("Robot " + robot.getName() + "  odłożył książkę na półkę");
         this.requireCurrentTask(robot);
     }
 
@@ -106,7 +106,7 @@ public class TwoKindsRobotsTaskCoordinator extends CoordinatorAdapter implements
     public void robotTakenBook(Robot robot, Desk desk, Book book, Environment environment) {
         //Dostarczanie z biurka
         if (robot.getCache().contains(book) && currentTasks.get(robot).getSourceDesk().equals(desk)) {
-            System.out.println("Robot: " + robot.getName() + " ma w kieszeni książkę: " + book + " którą dosatrczy na półkę.");
+       //     System.out.println("Robot: " + robot.getName() + " ma w kieszeni książkę: " + book + " którą dosatrczy na półkę.");
             if (robot.getCacheSize() > robot.getCache().size()) {
                 recentTasks.put(currentTasks.get(robot), robot);
                 this.getNewCurrentTask(robot);
@@ -118,7 +118,7 @@ public class TwoKindsRobotsTaskCoordinator extends CoordinatorAdapter implements
     public void robotTakenBook(Robot robot, Bookshelf bookshelf, Book book, Environment environment) {
         //Dostarczanie z półki
         if (robot.getCache().contains(book) && currentTasks.get(robot).getSourceBookshelf().equals(bookshelf)) {
-            System.out.println("Robot: " + robot.getName() + " ma w kieszeni książkę: " + book + " którą dosatrczy na biurko.");
+       //     System.out.println("Robot: " + robot.getName() + " ma w kieszeni książkę: " + book + " którą dosatrczy na biurko.");
             if (robot.getCacheSize() > robot.getCache().size()) {
                 recentTasks.put(currentTasks.get(robot), robot);
                 this.getNewCurrentTask(robot);
