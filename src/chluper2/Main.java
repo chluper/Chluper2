@@ -8,6 +8,7 @@ import chluper2.algorithm.AlgorithmManager;
 import chluper2.environment.creator.EnvironmentConfigurator;
 import chluper2.example.MTaskAlgorithmManager;
 import chluper2.example.SimpleTaskAlgorithmManager;
+import chluper2.example.TwoKindsRobotsTaskAlgorithManager;
 import chluper2.example.VerySimpleTaskAlgorithmManager;
 import chluper2.gui.SimulationFrame;
 import chluper2.simulation.Simulator;
@@ -28,11 +29,13 @@ public class Main {
 
 
 
+
         EnvironmentConfigurator configurator = new EnvironmentConfigurator(6, 1);
 
         //3;1;3;2
         //2;1;3;1
         //2;1;3;2
+
 
         // librarySize + ";" + numberDesk + ";" + robotNumber + ";" + cache
         int librarySize = 2;
@@ -45,8 +48,14 @@ public class Main {
 
 //		AlgorithmManager algorithmManager = new SimpleAlgorithmManager();
 
+        //	AlgorithmManager algorithmManager = new SimpleTaskAlgorithmManager();
+//                AlgorithmManager algorithmManager = new VerySimpleTaskAlgorithmManager();
+//        AlgorithmManager algorithmManager = new TwoKindsRobotsTaskAlgorithManager();
+
+
         	AlgorithmManager algorithmManager = new SimpleTaskAlgorithmManager();
       //  AlgorithmManager algorithmManager = new MTaskAlgorithmManager();
+
 
 
 

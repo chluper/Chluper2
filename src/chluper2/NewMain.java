@@ -16,6 +16,7 @@ import chluper2.simulation.SimulatorListener;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,6 +38,7 @@ public class NewMain {
         List<Integer> desksNumber = Arrays.asList(new Integer[]{1, 2, 3, 4, 5});//, 6}); //6!!
         List<Integer> robotsNumber = Arrays.asList(new Integer[]{1, 2, 3});
         List<Integer> cacheSize = Arrays.asList(new Integer[]{1, 2, 3});
+     //   List<AlgorithmManager> algorithms = new LinkedList();// = Arrays.asList(new AlgorithmManager[]{new MTa})
 
         for (Integer librarySize : librarySizeList) {
             for (Integer numberDesk : desksNumber) {

@@ -38,8 +38,8 @@ public class savingListener implements SimulatorListener {
             if(simulator.getEnvironmentCopy().getSimulationStep()== 10000){
                 simulator.cancel();
              //   System.out.println(simulator.getEnvironmentCopy().getAverageStudentServiceTime());
-                String s = "" + librarySize + ";" + numberDesk + ";" + robotNumber + ";" + cache + ";" + simulator.getEnvironmentCopy().getSimulationStep()                 
-                +";"+simulator.getEnvironmentCopy().getAverageStudentServiceTime() + ";" + "";
+                String s = "" + librarySize + ";" + numberDesk + ";" + robotNumber + ";" + cache + ";" + simulator.getEnvironmentCopy().getMaxServiceTime()                
+                +";"+simulator.getEnvironmentCopy().getAverageStudentServiceTime() + ";" + simulator.getEnvironmentCopy().getServicedStudentNumber() ;
 
                 System.out.println(s);
                 try {
@@ -52,8 +52,19 @@ public class savingListener implements SimulatorListener {
         }
 
         public void simulationError(Throwable t) {
-            System.out.println("blad!");
-            System.out.println("oto blad: " + t.toString());
+           // System.out.println("blad!");
+           // System.out.println("oto blad: " + t.toString());
+                            String s = "" + librarySize + ";" + numberDesk + ";" + robotNumber + ";" + cache + ";" + simulator.getEnvironmentCopy().getMaxServiceTime()                
+                +";"+simulator.getEnvironmentCopy().getAverageStudentServiceTime() + ";" + simulator.getEnvironmentCopy().getServicedStudentNumber() + ";"+ simulator.getEnvironmentCopy().getSimulationStep()+ ";"+" ERROR - "+ t.toString();
+          //  String s = "" + librarySize + ";" + numberDesk + ";" + robotNumber + ";" + cache + ";" + simulator.getEnvironmentCopy().getSimulationStep()                 
+          //      + " "+ t.toString();
+                            System.out.println(s);
+                try {
+   
+                    save("Chluper2:SimpleTaskAlgorithm", s);
+                } catch (IOException ex) {
+                    Logger.getLogger(NewMain.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
     
 

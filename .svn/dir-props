@@ -1,8 +1,14 @@
 K 10
 svn:ignore
+<<<<<<< HEAD
 V 16
 build
 dist
 .git
+=======
+V 11
+.git
+build
+>>>>>>> b90a3140280040921c6502104d528bea791f1168
 
 END
