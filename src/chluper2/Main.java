@@ -55,8 +55,8 @@ public class Main {
 //        AlgorithmManager algorithmManager = new TwoKindsRobotsTaskAlgorithManager();
 
 
-        	AlgorithmManager algorithmManager = new SimpleTaskAlgorithmManager();
-      //  AlgorithmManager algorithmManager = new MTaskAlgorithmManager();
+      //  	AlgorithmManager algorithmManager = new VerySimpleTaskAlgorithmManager();
+        AlgorithmManager algorithmManager = new MTaskAlgorithmManager();
 
 
 

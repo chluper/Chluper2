@@ -25,8 +25,8 @@ import java.util.Map;
  * @author zbychu
  */
 public class MTaskCoordinator extends CoordinatorAdapter implements TaskCoordinator {
-
     // kolejka zadan
+
     private final List<Task> freeTask = new LinkedList<Task>();
     // mapa robotow i zadan
     private final Map<Robot, Task> currentTasks = new HashMap<Robot, Task>();
@@ -37,7 +37,6 @@ public class MTaskCoordinator extends CoordinatorAdapter implements TaskCoordina
         for (Robot robot : environment.getRobots()) {
             halfTasks.put(robot, new LinkedList<Task>());
         }
-
     }
 
     public Task requireCurrentTask(Robot robot) {
@@ -81,8 +80,6 @@ public class MTaskCoordinator extends CoordinatorAdapter implements TaskCoordina
         if (halfTasks.get(robot).size() > 0) {
             currentTasks.put(robot, halfTasks.get(robot).removeFirst());
         }
-
-
     }
 
     @Override
@@ -90,14 +87,9 @@ public class MTaskCoordinator extends CoordinatorAdapter implements TaskCoordina
         // konczenie zadania - albo zamiana - polozenie ksiazki na biurku
         System.out.println("klade na biurko - " + robot.getName());
         currentTasks.remove(robot);
-
         if (halfTasks.get(robot).size() > 0) {
             currentTasks.put(robot, halfTasks.get(robot).removeFirst());
         }
-
-        //    System.out.println("POLOZYLEM KSIAZKE");
-        //   System.out.println("MAM: "+ halfTasks.get(robot).size());
-
     }
 
     @Override
@@ -110,63 +102,51 @@ public class MTaskCoordinator extends CoordinatorAdapter implements TaskCoordina
         }
     }
 
-    public void robotTakenBook(Robot robot, Desk desk, Book book, Environment environment) {
-        //zmiana zadania?  robot wzial ksiazke, ktora ma dostarzyc na bookshelf z biurka
-        //  System.out.println("biore z biurka");
-        if (robot.getCacheSize() > robot.getCache().size()) {
-            //pobranie nastepnego zadania
-            Task task = null;
-            for (int i = 0; i < freeTask.size(); i++) {
-                if (freeTask.get(i).getSourceDesk() != null) {
-                    if (freeTask.get(i).getSourceDesk().getName().equals(desk.getName())) {
-                        //znaleziono ten sam typ zadania
-                        task = freeTask.remove(i);
-                        break;
-                    }
-                }
-            }
-            if (task != null) {
-                LinkedList tasks = halfTasks.get(robot);
-                tasks.add(currentTasks.get(robot));
-                currentTasks.put(robot, task);
-                halfTasks.put(robot, tasks);
-            } else if (halfTasks.get(robot).size() > 0) {
-                LinkedList tasks = halfTasks.get(robot);
-                tasks.add(currentTasks.get(robot));
-                currentTasks.put(robot, task);
-                halfTasks.put(robot, tasks);
-
-            }
-        }
-
+public void robotTakenBook(Robot robot, Desk desk, Book book, Environment environment) {
+        //zmiana zadania?
+    //zmiana zadania? - robot wzial ksiazke, ktora mial dostarczyc z  biurka do bookshelf
+                    if(robot.getCacheSize()>robot.getCache().size()){
+                        //pobranie nastepnego zadania
+                        Task task = null;
+                        for(int i = 0;i<freeTask.size();i++){
+                           if(freeTask.get(i).getSourceDesk()!=null){
+                               //znaleziono ten sam typ zadania
+                                    task = freeTask.remove(i);
+                                    break;
+                           }
+                        }
+                        if(task != null){
+                        LinkedList tasks = halfTasks.get(robot);
+                        tasks.add(currentTasks.get(robot));
+                        currentTasks.put(robot, task);
+                        halfTasks.put(robot, tasks);
+                        }
+                    }        
+        
+        
+        
+      //  System.out.println("WSIOLEM KSIAZKE");
     }
 
     public void robotTakenBook(Robot robot, Bookshelf bookshelf, Book book, Environment environment) {
         //zmiana zadania? - robot wzial ksiazke, ktora mial dostarczyc do biurka z bookshelf
-        //  System.out.println("biore z bookshelf: ");
-        if (robot.getCacheSize() > robot.getCache().size()) {
-            //pobranie nastepnego zadania
-            Task task = null;
-            for (int i = 0; i < freeTask.size(); i++) {
-                if (freeTask.get(i).getTargetDesk() != null) {
-                    //znaleziono ten sam typ zadania
-                    task = freeTask.remove(i);
-                    break;
-                }
-            }
-            if (task != null) {
-                LinkedList tasks = halfTasks.get(robot);
-                tasks.add(currentTasks.get(robot));
-                currentTasks.put(robot, task);
-                halfTasks.put(robot, tasks);
-            }else if (halfTasks.get(robot).size() > 0) {
-                LinkedList tasks = halfTasks.get(robot);
-                tasks.add(currentTasks.get(robot));
-                currentTasks.put(robot, task);
-                halfTasks.put(robot, tasks);
+                           if(robot.getCacheSize()>robot.getCache().size()){
+                        //pobranie nastepnego zadania
+                        Task task = null;
+                        for(int i = 0;i<freeTask.size();i++){
+                           if(freeTask.get(i).getTargetDesk()!=null){
+                               //znaleziono ten sam typ zadania
+                                    task = freeTask.remove(i);
+                                    break;
+                           }
+                        }
+                        if(task != null){
+                        LinkedList tasks = halfTasks.get(robot);
+                        tasks.add(currentTasks.get(robot));
+                        currentTasks.put(robot, task);
+                        halfTasks.put(robot, tasks);
+                        }
+                    }
 
-            }
-        }
-        //   System.out.println("WZIOLEM KSIONSZKE");
     }
 }
