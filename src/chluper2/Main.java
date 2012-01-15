@@ -27,12 +27,12 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        //EnvironmentConfigurator configurator = new EnvironmentConfigurator(1, 3);
+
+        EnvironmentConfigurator configurator = new EnvironmentConfigurator(1, 3);
 
 
 
-
-        EnvironmentConfigurator configurator = new EnvironmentConfigurator(6, 1);
+        //EnvironmentConfigurator configurator = new EnvironmentConfigurator(6, 1);
 
         //3;1;3;2
         //2;1;3;1
