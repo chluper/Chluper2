@@ -23,7 +23,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        EnvironmentConfigurator configurator = new EnvironmentConfigurator(5, 2);
+        EnvironmentConfigurator configurator = new EnvironmentConfigurator(1, 3);
 
 
 //		AlgorithmManager algorithmManager = new SimpleAlgorithmManager();

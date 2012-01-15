@@ -13,7 +13,7 @@ public class EnvironmentConfigurator {
 	// ilosc rzedow z polkami
 	private int bookshefRowNumber = 2;
 	// ilosc kolumn z polkami
-	private int bookshelfColumnNumber = 7;
+	private int bookshelfColumnNumber = 10;//7;
 	// ilosc polek w rzedzie
 	private int bookshelfInRow = 5;
 	// ilosc biurek
@@ -24,7 +24,7 @@ public class EnvironmentConfigurator {
 	private int deskBooksLimit = 5;
 	// ilosc miejsc w kieszeni robota
 
-	private int robotCacheSize = 3;
+	private int robotCacheSize = 2;//3;
 
 	// ilosc tytulow ksiazek
 	private int titleNumber = 1000;
