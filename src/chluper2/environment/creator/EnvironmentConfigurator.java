@@ -31,7 +31,7 @@ public class EnvironmentConfigurator {
 	// maksymalny czas obslugi studenta
 	private int maxServiceTime = 1000;
 	// maksymalny czas akcji robota
-	private int maxActionTime = 300;
+	private int maxActionTime = 1300;
 
 	/**
 	 * Tworzy domyslna konfiguracje srodowiska

@@ -78,7 +78,7 @@ public class VerySimpleTaskCoordinator extends CoordinatorAdapter implements Tas
 	@Override
 	public void robotPutBook(Robot robot, Bookshelf bookshelf, Book book, Environment environment) {
 		// konczenie zadania - albo zamiana
-            System.out.println("POLOZYLEM KSIONSZKE");
+         //   System.out.println("POLOZYLEM KSIONSZKE");
 		currentTasks.remove(robot);
                 
             if(halfTasks.get(robot).size()>0)
@@ -95,8 +95,8 @@ public class VerySimpleTaskCoordinator extends CoordinatorAdapter implements Tas
             if(halfTasks.get(robot).size()>0)
                 currentTasks.put(robot, halfTasks.get(robot).removeFirst());
                 
-            System.out.println("POLOZYLEM KSIAZKE");
-            System.out.println("MAM: "+ halfTasks.get(robot).size());
+        //    System.out.println("POLOZYLEM KSIAZKE");
+         //   System.out.println("MAM: "+ halfTasks.get(robot).size());
 
 	}
 
@@ -105,7 +105,7 @@ public class VerySimpleTaskCoordinator extends CoordinatorAdapter implements Tas
 		for (Robot robot : currentTasks.keySet()) {
 			Task task = currentTasks.get(robot);
 			if (desk.equals(task.getSourceDesk()) && book.getTitle().equals(task.getTitle())) {
-				System.out.println("Student wzial ksiazke przeznaczona dla robota");
+				//System.out.println("Student wzial ksiazke przeznaczona dla robota");
                                 
 			}
 		}
@@ -133,7 +133,7 @@ public class VerySimpleTaskCoordinator extends CoordinatorAdapter implements Tas
         
         
         
-        System.out.println("WSIOLEM KSIAZKE");
+      //  System.out.println("WSIOLEM KSIAZKE");
     }
 
     public void robotTakenBook(Robot robot, Bookshelf bookshelf, Book book, Environment environment) {
@@ -155,7 +155,7 @@ public class VerySimpleTaskCoordinator extends CoordinatorAdapter implements Tas
                         halfTasks.put(robot, tasks);
                         }
                     }
-        System.out.println("WZIOLEM KSIONSZKE");
+     //   System.out.println("WZIOLEM KSIONSZKE");
     }
 
     //public void robotPutBook(Robot robot, Desk desk, Book book, Environment environment) {

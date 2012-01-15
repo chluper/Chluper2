@@ -56,6 +56,9 @@ public class Simulation {
 	private int currebtBookCode = 1;
 	// manager studentow
 	private final StudentManager studentManager = new DefaultStudentManager();
+        
+        //liczba usatysfakcjonowanych studentow
+        private int satisfiedStudents = 0;
 	
 
 	/**

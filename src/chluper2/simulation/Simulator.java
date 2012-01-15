@@ -30,6 +30,9 @@ public class Simulator implements Runnable {
 	// lista sluchaczy
 	private Set<SimulatorListener> listeners = new CopyOnWriteArraySet<SimulatorListener>();
 
+        public Thread getThread(){
+            return this.thread;
+        }
 	/**
 	 * Metoda tworzy nowy obiekt symulatora
 	 * @param configurator konfigurator srodowiska
@@ -152,9 +155,9 @@ public class Simulator implements Runnable {
 						// wykonanie kroku
 						singleStep();
 						// powiadamianie sluchaczy
-						for (SimulatorListener simulatorListener : listeners) {
-							simulatorListener.nextStep();
-						}
+//						for (SimulatorListener simulatorListener : listeners) {
+//							simulatorListener.nextStep();
+//						}
 						// odczekanie
 						Thread.sleep(deleyBetweenSteps);
 					} else {
