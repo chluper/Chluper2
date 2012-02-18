@@ -45,7 +45,7 @@ public class Main {
         configurator.setDeskNumber(3);
         configurator.setBookshelfColumnNumber(5 * librarySize);
         configurator.setBookshelfInRow(5);
-        configurator.setRobotNumber(1);
+        configurator.setRobotNumber(3);
         configurator.setRobotCacheSize(3);
 
 //		AlgorithmManager algorithmManager = new SimpleAlgorithmManager();
